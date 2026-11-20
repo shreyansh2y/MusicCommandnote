@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#11120f" />
+  <meta name="description" content="Find your next favorite playlist with Commonnote." />
+  <title>Commonnote — music for every moment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Commonnote home"><span class="brand-mark">c<span>•</span></span><span>commonnote</span></a>
+      <div class="side-label">YOUR SPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="discover"><span class="nav-icon">⌕</span> Discover</button>
+        <button class="nav-link" data-view="saved"><span class="nav-icon">♡</span> Saved playlists <span class="saved-count" id="savedCount">0</span></button>
+      </nav>
+      <div class="side-divider"></div>
+      <div class="side-label">YOUR MOOD</div>
+      <div class="side-moods" id="sideMoods">
+        <button data-mood="Focus"><i class="mood-dot dot-lime"></i> Focus</button>
+        <button data-mood="Unwind"><i class="mood-dot dot-lilac"></i> Unwind</button>
+        <button data-mood="Energy"><i class="mood-dot dot-orange"></i> Energy</button>
+        <button data-mood="Feel good"><i class="mood-dot dot-pink"></i> Feel good</button>
+      </div>
+      <div class="sidebar-note"><span class="note-spark">✳</span><p>Good music finds its way to you.</p><span>YOUR PERSONAL MUSIC MAP</span></div>
+      <div class="sidebar-foot"><span class="tiny-record">◉</span> Made for the in-between.</div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">c<span>•</span></span> commonnote</div>
+        <div class="crumb"><span>YOUR MUSIC MAP</span><b>/</b><span id="crumbPage">DISCOVER</span></div>
+        <button class="avatar" aria-label="Your profile">S</button>
+      </header>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> A little more in tune</div>
+          <h1>Find the sound<br>of <em>right now.</em></h1>
+          <p>Fresh playlists for wherever your day takes you.<br>Find your next favorite, then listen where you like.</p>
+          <label class="search-box"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Try ‘slow mornings’ or ‘jazz’" autocomplete="off"><kbd>↵</kbd></label>
+          <div class="search-hint"><span class="hint-dot"></span> SEARCH BY MOOD, GENRE, ARTIST OR ACTIVITY</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-disc"><div class="disc-label"><span>CN</span><i>side<br> A</i></div></div>
+          <div class="art-note note-one">♫</div><div class="art-note note-two">♪</div>
+          <div class="art-caption"><span class="caption-line"></span><span>YOUR MOMENT<br>HAS A SOUND</span></div>
+          <div class="art-sticker">PLAY<br>YOUR<br>DAY <span>↗</span></div>
+        </div>
+      </section>
+
+      <section class="discovery" id="discovery">
+        <div class="section-top"><div><div class="eyebrow small-eyebrow"><span></span> THE GOOD STUFF</div><h2 id="sectionTitle">Made for this moment</h2></div><button class="text-button" id="clearFilters">Reset filters <span>↗</span></button></div>
+        <div class="filters" id="filters" aria-label="Filter by mood">
+          <button class="filter-chip selected" data-mood="All">✳ <span>All moods</span></button>
+          <button class="filter-chip" data-mood="Focus">◌ <span>Focus</span></button>
+          <button class="filter-chip" data-mood="Unwind">☾ <span>Unwind</span></button>
+          <button class="filter-chip" data-mood="Energy">↗ <span>Energy</span></button>
+          <button class="filter-chip" data-mood="Feel good">☺ <span>Feel good</span></button>
+          <button class="filter-chip" data-mood="Explore">✳ <span>Explore</span></button>
+        </div>
+        <div class="category-row"><span class="category-label">EXPLORE BY SOUND</span><div class="category-filters" id="categoryFilters" aria-label="Filter by music category">
+          <button class="category-chip selected" data-category="All">All music</button>
+          <button class="category-chip" data-category="Bollywood">Bollywood</button>
+          <button class="category-chip" data-category="Indian">Indian</button>
+          <button class="category-chip" data-category="Hollywood">Hollywood</button>
+          <button class="category-chip" data-category="International">International</button>
+        </div></div>
+        <div class="results-meta"><span id="resultsLabel">PLAYLISTS TO GET YOU THERE</span><span id="resultCount"></span></div>
+        <div class="playlist-grid" id="playlistGrid"></div>
+        <div class="empty-state" id="emptyState" hidden><div class="empty-icon">⌕</div><h3>No tracks on this wavelength.</h3><p>Try another search or reset your filters to explore more.</p><button class="primary-button" id="emptyReset">Show me everything <span>↗</span></button></div>
+      </section>
+      <footer><span class="footer-brand">commonnote<span>•</span></span><span>Find a feeling. Find a playlist. Find your sound.</span><a href="#home">BACK TO TOP ↑</a></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
